@@ -1,0 +1,53 @@
+### Crear un template (con html)
+
+POST http://127.0.0.1:8000/v1/templates
+Content-Type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbklEIjoiNjU1NmFmNmQ5M2Y4ZGY2NDExZDlkOWU4IiwidXNlcklEIjoiNjU0ZDZkZjA5Y2ZlNzZiMDdiZDQ0YzhiIn0.bNmIIEmJSgzSI1OfjlQw_QZltgPYb2EJQx1IzNTCw40
+
+{
+    "name": "Notificación de compra realizada",
+    "description": "Permite informarle al usuario cada vez que realiza una compra a su correo electrónico",
+    "email_from": "compras@ecommerce.com",
+    "subject": "Confirmación de compra N° {{ body.compra.id }}",
+    "body": "<!DOCTYPE html><html lang='es'><head><meta charset='UTF-8'><meta name='viewport' content='width=device-width, initial-scale=1.0'><title>Confirmación de Compra - Número de Pedido {{ body.compra.id }}</title></head><body><h2>Confirmación de Compra - Número de Pedido {{ body.compra.id }}</h2><p>Estimado/a {{ body.compra.cliente.nombre }},</p><p>¡Gracias por elegir nuestra tienda en línea para realizar tu compra! Hemos recibido con éxito tu pedido con el número {{ body.compra.id }}, realizado el {{ body.compra.fecha }}.</p><h3>Detalles de la Compra:</h3><p>Productos Adquiridos:</p><ul>{% for producto in body.compra.productos %}<li>{{ producto.nombre }}</li>{% endfor %}</ul><p>Total de la Compra: ${{ body.compra.total }}</p><h3>Datos del Cliente:</h3><p>Nombre: {{ body.compra.cliente.nombre }}</p><p>Correo Electrónico: {{ body.compra.cliente.email }}</p><p>Teléfono: {{ body.compra.cliente.telefono }}</p><h3>Dirección de Entrega:</h3><p>Tu pedido será procesado y enviado a la siguiente dirección:</p><p>{{ body.compra.direccion_entrega.nombre }} {{ body.compra.direccion_entrega.numero }}, {{ body.compra.direccion_entrega.ciudad }}, {{ body.compra.direccion_entrega.codigo_postal }}, {{ body.compra.direccion_entrega.pais }}</p><p>Agradecemos tu confianza en nosotros. Si tienes alguna pregunta o inquietud, no dudes en contactarnos.</p><p>¡Esperamos que disfrutes de tus productos!</p><p>Atentamente, El Equipo del Ecommerce</p></body></html>",
+    "is_html": true
+}
+
+### Modificar un template (para que sea sin html)
+
+PUT http://127.0.0.1:8000/v1/templates/4
+Content-Type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbklEIjoiNjU1NmFmNmQ5M2Y4ZGY2NDExZDlkOWU4IiwidXNlcklEIjoiNjU0ZDZkZjA5Y2ZlNzZiMDdiZDQ0YzhiIn0.bNmIIEmJSgzSI1OfjlQw_QZltgPYb2EJQx1IzNTCw40
+
+{
+    "name": "Notificación de compra realizada",
+    "description": "Permite informarle al usuario cada vez que realiza una compra a su correo electrónico",
+    "email_from": "compras@ecommerce.com",
+    "subject": "Confirmación de compra N° {{ body.compra.id }}",
+    "body": "Asunto: Confirmación de body.compra - Número de Pedido {{ body.compra.id }}\nEstimado/a {{ body.compra.cliente.nombre }},\n\n¡Gracias por elegir nuestra tienda en línea para realizar tu body.compra! Hemos recibido con éxito tu pedido con el número {{ body.compra.id }}, realizado el {{ body.compra.fecha }}.\n\nDetalles de la body.compra:\nProductos Adquiridos:\n{% for producto in body.compra.productos %}\n- {{ producto.nombre }}\n{% endfor %}\n\nTotal de la body.compra:\n${{ body.compra.total }}\n\nDatos del Cliente:\n\nNombre: {{ body.compra.cliente.nombre }}\nCorreo Electrónico: {{ body.compra.cliente.email }}\nTeléfono: {{ body.compra.cliente.telefono }}\n\nTu pedido será procesado y enviado a la siguiente dirección:\n{{ body.compra.direccion_entrega.nombre }} {{ body.compra.direccion_entrega.numero }} {{ body.compra.direccion_entrega.ciudad }} {{ body.compra.direccion_entrega.codigo_postal }} {{ body.compra.direccion_entrega.pais }}\n\nAgradecemos tu confianza en nosotros.\n\nSi tienes alguna pregunta o inquietud, no dudes en contactarnos.\n\n¡Esperamos que disfrutes de tus productos!\n\nAtentamente, El Equipo del Ecommerce",
+    "is_html": false
+}
+
+### Visualizar templates
+
+GET http://127.0.0.1:8000/v1/templates
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbklEIjoiNjU1NmFmNmQ5M2Y4ZGY2NDExZDlkOWU4IiwidXNlcklEIjoiNjU0ZDZkZjA5Y2ZlNzZiMDdiZDQ0YzhiIn0.bNmIIEmJSgzSI1OfjlQw_QZltgPYb2EJQx1IzNTCw40
+
+### Mostrar template
+
+GET http://127.0.0.1:8000/v1/templates/3
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbklEIjoiNjU1NmFmNmQ5M2Y4ZGY2NDExZDlkOWU4IiwidXNlcklEIjoiNjU0ZDZkZjA5Y2ZlNzZiMDdiZDQ0YzhiIn0.bNmIIEmJSgzSI1OfjlQw_QZltgPYb2EJQx1IzNTCw40
+
+### Eliminar template
+
+DELETE http://127.0.0.1:8000/v1/templates/3
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbklEIjoiNjU1NmFmNmQ5M2Y4ZGY2NDExZDlkOWU4IiwidXNlcklEIjoiNjU0ZDZkZjA5Y2ZlNzZiMDdiZDQ0YzhiIn0.bNmIIEmJSgzSI1OfjlQw_QZltgPYb2EJQx1IzNTCw40
+
+### Visualizar mails enviados
+
+GET http://127.0.0.1:8000/v1/templates/1/mails
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbklEIjoiNjU1N2U5MjQ5M2Y4ZGY2NDExZDlkOWVhIiwidXNlcklEIjoiNjU0ZDZkZjA5Y2ZlNzZiMDdiZDQ0YzhiIn0.JitzaRPJfFXk4wG67uOquzF3oNUE2WyaC58L6M67K0g
+### Current user
+
+GET http://localhost:3000/v1/users/current
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbklEIjoiNjU1NmFmNmQ5M2Y4ZGY2NDExZDlkOWU4IiwidXNlcklEIjoiNjU0ZDZkZjA5Y2ZlNzZiMDdiZDQ0YzhiIn0.bNmIIEmJSgzSI1OfjlQw_QZltgPYb2EJQx1IzNTCw40

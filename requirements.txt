@@ -1,0 +1,6 @@
+djangorestframework
+pika
+python-decouple
+redis
+django-redis
+Jinja2

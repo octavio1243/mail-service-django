@@ -1,0 +1,84 @@
+
+
+# Instalar modulos
+pip install -r requirements.txt
+
+# Crea las migraciones partiendo desde los modelos
+python manage.py makemigrations
+
+# Correr migraciones
+python manage.py migrate
+
+# Ejecutar proyecto
+python manage.py runserver
+
+# ------------------------------------
+
+docker pull redis
+docker run --name some-redis -d -p 6379:6379 redis
+docker ps
+
+# ------------------------------------
+# Ejecutar cron manualmente
+python3 manage.py crontab run <task_hash>
+python3 manage.py crontab run_task app.tasks.task_predictions
+python3 manage.py crontab run adca7cfdb76a4f60fdb325f0890c3bc8
+
+# Eliminar crontab
+python3 manage.py crontab remove
+
+# Ver crontabs
+python3 manage.py crontab show
+
+# Registrar crontab
+python3 manage.py crontab add
+
+#Correr server
+python manage.py runserver
+
+# ------------------------------------
+
+# Crear entorno virtual
+pip install virtualenv
+virtualenv venv -p python3
+source venv/bin/activate # En linux
+.\venv\Scripts\activate # En windows
+
+# Crear proyecto
+django-admin startproject mail_notifications .
+
+# Crear aplicacion
+python manage.py startapp app
+
+# Crear super-usuario
+python manage.py createsuperuser
+localhost:8000/admin
+usuario: octavio
+correo: admin@gmail.com
+contraseña: 123456
+
+# REQUEST
+request.data (es el POST)
+request.query_params (es el GET)
+
+request.accepted_renderer (es un JSONRenderer() )
+request.accepted_media_type (es un application/json)
+
+# RESPONSE
+response(data,status=None,template_name=None,headers=None,content_type=None)
+data son SERIALIZADOS
+status es HTTP_200_OK por defecto
+
+# PASOS PARA DJANGO REST
+1) Definir modelo
+2) Serializador: Crear estructura del JSON
+3) Vista
+4) Ruta (Router)
+
+
+# Django usa MVT (Modelo Vista Template) en lugar de MVC (Modelo Vista Controlador)
+
+
+
+git branch -r
+git push origin master :main
