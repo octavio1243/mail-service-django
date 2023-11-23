@@ -8,7 +8,8 @@ pip install virtualenv
 python -m venv venv
 
 # Activar entorno virtual
-venv\Scripts\activate
+venv\Scripts\activate (windows)
+(linux)
 
 # Instalar modulos del proyecto
 pip install -r requirements.txt
@@ -20,8 +21,5 @@ python manage.py makemigrations
 python manage.py migrate
 
 # Ejecutar proyecto
-python manage.py runserver
-
-# Levantar proceso demonio del comunicación asincrona
-python rabbit_script.py
+python manage.py runserver --noreload
 ```

@@ -174,13 +174,13 @@ def email_processor():
 
 # ---> Ejecutando procesos <---
 
-if __name__ == "__main__":
+def run_rabbit_script():
     proceso_expire_tokens = multiprocessing.Process(target=expire_tokens)
     proceso_email_processor = multiprocessing.Process(target=email_processor)
     
     proceso_expire_tokens.start()
     proceso_email_processor.start()
 
-    proceso_expire_tokens.join()
-    proceso_email_processor.join()
+    #proceso_expire_tokens.join()
+    #proceso_email_processor.join()
 

@@ -1,0 +1,3 @@
+from mail_notifications.rabbit_script import run_rabbit_script
+
+run_rabbit_script()

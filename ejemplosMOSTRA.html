@@ -1,0 +1,113 @@
+<html lang='es'>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Confirmación de Compra - Número de Pedido {{ body.orderId }}</title>
+</head>
+<body>
+    <h2>Confirmación de Compra - Número de Pedido {{ body.orderId }}</h2>
+    <p>Estimado/a {{ body.user.name }},</p>
+    <p>¡Gracias por elegir nuestra tienda en línea para realizar tu compra! Hemos creado tu orden del carrito creado el {{ body.cart.created }}.</p>
+    <h3>Detalles de la Compra:</h3>
+    <p>Productos Adquiridos:</p>
+    <ul>
+        {% for article in body.articles %}
+            <li>{{ article.name }}</li>
+        {% endfor %}
+    </ul>
+    
+    <h3>Datos del Cliente:</h3>
+    <p>Correo Electrónico: {{ body.user.login }}</p>
+    <p>Atentamente, El Equipo del Ecommerce</p>
+</body>
+</html>
+
+"body": "<html lang='es'><head><meta charset='UTF-8'><meta name='viewport' content='width=device-width, initial-scale=1.0'><title>Confirmación de Compra - Número de Pedido {{ body.orderId }}</title></head><body><h2>Confirmación de Compra - Número de Pedido {{ body.orderId }}</h2><p>Estimado/a {{ body.user.name }},</p><p>¡Gracias por elegir nuestra tienda en línea para realizar tu compra! Hemos creado tu orden del carrito creado el {{ body.cart.created }}.</p><h3>Detalles de la Compra:</h3><p>Productos Adquiridos:</p><ul>{% for article in body.articles %}<li>{{ article.name }}</li>{% endfor %}</ul><h3>Datos del Cliente:</h3><p>Correo Electrónico: {{ body.user.login }}</p><p>Atentamente, El Equipo del Ecommerce</p></body></html>",
+
+
+<html lang='es'>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Confirmación de Compra - Número de Pedido {{ body.orderId }}</title>
+</head>
+<body>
+    <h2>Confirmación de Compra - Número de Pedido {{ body.orderId }}</h2>
+    <p>Estimado/a {{ body.user.name }},</p>
+    <p>¡Gracias por elegir nuestra tienda en línea para realizar tu compra! Hemos creado tu orden del carrito creado el {{ body.cart.created }}.</p>
+    <h3>Detalles de la Compra:</h3>
+    <p>Productos Adquiridos:</p>
+    <ul>
+        {% for article in body.articles %}
+            <li>{{ article.name }} | Cantidad: {{ article.quantity }}</li>
+        {% endfor %}
+    </ul>
+    
+    <h3>Datos del Cliente:</h3>
+    <p>Correo Electrónico: {{ body.user.login }}</p>
+    <p>Atentamente, El Equipo del Ecommerce</p>
+</body>
+</html>
+
+"body": "<html lang='es'><head><meta charset='UTF-8'><meta name='viewport' content='width=device-width, initial-scale=1.0'><title>Confirmación de Compra - Número de Pedido {{ body.orderId }}</title></head><body><h2>Confirmación de Compra - Número de Pedido {{ body.orderId }}</h2><p>Estimado/a {{ body.user.name }},</p><p>¡Gracias por elegir nuestra tienda en línea para realizar tu compra! Hemos creado tu orden del carrito creado el {{ body.cart.created }}.</p><h3>Detalles de la Compra:</h3><p>Productos Adquiridos:</p><ul>{% for article in body.articles %}<li>{{ article.name }} | Cantidad: {{ article.quantity }}</li>{% endfor %}</ul><h3>Datos del Cliente:</h3><p>Correo Electrónico: {{ body.user.login }}</p><p>Atentamente, El Equipo del Ecommerce</p></body></html>",
+
+
+user: octavioalcalde
+passw: octavio1@gmail.com
+
+Cadenas: 65586a9330c49e0007c7a24f
+Remeras: 65586ab430c49e0007c7a250
+Bermudas: 65586ace30c49e0007c7a251
+
+
+
+{
+    "orderId":"7ds8fsadf6897sad"
+    "articles":[
+       {
+          "_id":"655849ac30c49e0007c7a24e",
+          "name":"Art 1",
+          "description":"Art 1",
+          "image":"4715fe25-74fd-45a7-a75d-6a485d0fea91",
+          "price":5,
+          "stock":200,
+          "enabled":true,
+          "quantity":4
+       },
+       {
+          "_id":"65581e65a7b11b0007af64ea",
+          "name":"Art 1",
+          "description":"Art 1",
+          "image":"0ac3e914-8e96-449e-886c-4bc87b8ce015",
+          "price":40,
+          "stock":7,
+          "enabled":true,
+          "quantity":4
+       }
+    ],
+    "user":{
+       "enabled":true,
+       "id":"6558662d90aad723e9ab89cc",
+       "login":"octavio1243@gmail.com",
+       "name":"octavio1243@gmail.com",
+       "permissions":[
+          "user"
+       ]
+    },
+    "cart":{
+       "_id":"new ObjectId(""65586639cefd5ef4a8ca1664"")",
+       "userId":"6558662d90aad723e9ab89cc",
+       "updated":"2023-11-18T07":"25":59.286Z,
+       "created":"2023-11-18T07":"11":12.087Z,
+       "enabled":false,
+       "articles":[
+          [
+             "Object"
+          ],
+          [
+             "Object"
+          ]
+       ],
+       "__v":2
+    }
+ }
