@@ -9,7 +9,7 @@ python -m venv venv
 
 # Activar entorno virtual
 venv\Scripts\activate (windows)
-(linux)
+source venv/bin/activate (linux)
 
 # Instalar modulos del proyecto
 pip install -r requirements.txt
